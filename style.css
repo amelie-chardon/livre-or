@@ -1,0 +1,309 @@
+/* GENERAL */
+
+html
+{
+    margin:0;
+    padding:0;
+}
+
+body
+{
+    margin:0;
+    padding:0;
+}
+
+main
+{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    align-content:center;
+    justify-items:center;
+    min-height: 90vh;
+}
+
+h1
+{
+    font-size:55px;
+    font-family: 'Parisienne', cursive;
+    color:white;
+    text-align: center;
+    margin:20px;
+}
+
+h2
+{
+    text-align: center;
+}
+
+p
+{
+    color:white;
+    font-size:20px;
+    text-align:center;
+}
+
+button a
+{
+    text-decoration: none;
+    color:white;
+}
+
+button
+{
+    background-color: rgb(216, 191, 219);
+    border-radius: 8px;
+    font-size: 24px;
+    margin:20px;
+    padding:15px;
+}
+
+#submit
+{
+    background-color: rgb(216, 191, 219);
+    border-radius: 8px;
+    font-size: 18px;
+    padding:10px;
+    margin:10px;
+    width: max-content;
+}
+
+/*ACCUEIL INDEX*/
+
+.accueil
+{
+    background-image: url("img/accueil.jpg");
+    background-color:grey;
+    background-repeat:no-repeat;
+    background-attachment: fixed;
+    background-size:cover;
+    display: flex;
+    justify-content: center;
+}
+
+.accueil h1
+{
+    font-size:55px;
+    font-family: 'Parisienne', cursive;
+}
+
+.accueil p
+{
+    font-size:30px;
+}
+
+.accueil a
+{
+    text-decoration: none;
+    color:white;
+}
+
+.accueil a:hover
+{
+    color:gold;
+}
+
+/* INSCRIPTION - CONNEXION */
+.inscription, .connexion
+{
+    flex-direction: row;
+}
+
+.section_gauche
+{
+    background-image: url("img/formulaire.jpg");
+    background-color:rgb(231, 208, 165);
+    background-repeat:no-repeat;
+    background-attachment: fixed;
+    background-origin: center;
+    background-size:contain;
+    display: flex;
+    justify-content: center;
+    width: 50vw;
+    height: 90vh;
+}
+
+.section_droite
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items:center;
+    background-color:rgb(231, 208, 165);
+    width: 50vw;
+    height: 90vh;
+}
+
+
+.formulaire label, .formulaire input
+{
+    display: flex;
+    flex-direction:column;
+    align-items:center;
+    align-content:center;
+    justify-content:center;
+    justify-items:center;
+    margin:5px;
+    font-size: 18px;
+}
+
+.formulaire
+{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 8px;
+    max-width: 30vw;
+    background: rgba(146, 139, 144, 0.9);
+    padding:15px;
+    margin:15px;
+}
+
+/* PROFIL */
+
+.profil
+{
+    background-image: url("img/profil.jpg");
+    background-color:grey;
+    background-repeat:no-repeat;
+    background-attachment: fixed;
+    background-size:cover;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.modif_profil
+{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.modif_identifiant, .modif_mdp
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+/* LIVRE OR */
+
+.livre-or
+{
+    background-image: url("img/livre.jpg");
+    background-color:grey;
+    background-repeat:no-repeat;
+    background-attachment:scroll;
+    background-size:cover;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.livre
+{
+    background: rgba(211, 200, 176, 0.9);
+    border-radius:10px;
+    width:80vw;
+    min-height:25vh;
+    max-height: 50vh;
+    padding:10px;
+    overflow-y:auto;
+}
+
+.titre_commentaire
+{
+    font-style: italic;
+    font-weight: bold;
+    text-align: left;
+    margin:0;
+    margin-top:5px;
+}
+
+.texte_commentaire
+{
+    text-align: left;
+    font-size: 18px;
+    margin:0;
+}
+
+.formulaire_commentaire
+{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 8px;
+    width: 80vw;
+    background: rgba(146, 139, 144, 0.9);
+    padding:10px;
+    margin-top:15px;
+}
+
+.formulaire_commentaire label
+{
+    display: flex;
+    flex-direction:column;
+    align-items:center;
+    align-content:center;
+    justify-content:center;
+    justify-items:center;
+    margin:5px;
+    font-size: 18px;
+    border-radius: 8px;
+}
+
+.formulaire_commentaire input, .formulaire_commentaire textarea
+{
+    width: 70vw;
+    font-size: 12px;
+    border-radius: 8px;
+}
+
+/* HEADER */
+
+header{
+    display: flex;
+    flex-direction: row;
+    justify-items: space-between;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    padding: 0 20px;
+    height: 10vh;
+    background-color: #FFFFFF;
+}
+
+header nav{
+    display: flex;
+    flex-direction: row;
+}
+
+header ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    list-style-type: none;
+}
+
+header li{
+    padding: 0 20px;
+}
+
+header li a{
+    font-size: 22px;
+    color: #000000;
+    text-decoration: none;
+}
+
+header li a:hover{
+    color: gold;
+    border-bottom: solid 2px gold;
+}
+
+
+
+
+
+
