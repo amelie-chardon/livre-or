@@ -81,7 +81,7 @@ else
         if(password_verify($password, $password_verif)) //si le mdp du formulaire correspond à celui de la bdd : l'utilisateur est connecté
         {
             $_SESSION["$login"]=true; //On crée une session pour l'utilisateur
-            header("Location: profil.php"); //On dirige l'utilisateur vers sa page de profil
+            header("Location: livre-or.php"); //On dirige l'utilisateur vers sa page de profil
             exit();
         }
         else //le mdp est incorrect
