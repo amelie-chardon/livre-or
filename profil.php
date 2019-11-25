@@ -34,15 +34,13 @@ foreach($_SESSION as $cle=>$valeur)
     $id=$cle; 
 }
 
+//Création de la connexion à a base de données
+$connexion=mysqli_connect("localhost","root","","livreor");
+
 
 //On vérifie que l'utilisateur est bien connecté
 if ($_SESSION["$id"]==true)
 {
-    //Création de la connexion à a base de données
-    $connexion=mysqli_connect("localhost","root","","livreor");
-
-
-
     //Préparation de la requête SQL
     $requete="SELECT * FROM utilisateurs WHERE login=\"$id\"" ;
 
@@ -81,7 +79,7 @@ if ($_SESSION["$id"]==true)
         //On vérifie que le nouvel identifiant est différent de l'ancien
         if($login_modif==$login_bdd)
         {
-            echo "<p>L'identifiant choisi est le même que le précédent. Veuillez en choisir un autre.</p>";
+            ?><p>L'identifiant choisi est le même que le précédent. Veuillez en choisir un autre.</p><?php
         }
         else
         {
@@ -96,14 +94,13 @@ if ($_SESSION["$id"]==true)
                 }
             if($i!=0) //si le compteur est différent de 0 : l'identifiant est déjà pris
             {
-                echo "<p>L'identifiant choisi existe déjà. Veuillez en choisir un autre.</p>";
+                ?><p>L'identifiant choisi existe déjà. Veuillez en choisir un autre.</p><?php
             }
             else if(password_verify($password, $password_bdd)==false) //si le mdp du formulaire correspond à celui de la bdd : l'utilisateur est connecté
 
             //else if($password_bdd!=$password) //Si l'ancien mot de passe ne correspond pas à celui de la bdd
             {
-                echo "<p>Ancien mot de passe incorrect.</p>";
-                var_dump($_SESSION);
+                ?><p>Ancien mot de passe incorrect.</p><?php
             }
             else //On modifie les informations de l'utilisateur dans la bdd
             {
@@ -124,9 +121,8 @@ if ($_SESSION["$id"]==true)
             //Récupération du résultat de la requête
             $resultat=mysqli_fetch_all($query);
             $login_bdd=$login_modif;
-            echo "<p>Votre identifiant a bien été modifié.</p>";
-
             unset($_POST);
+            ?><p>Votre identifiant a bien été modifié.</p><?php
             }
         }
     }
@@ -158,12 +154,12 @@ if ($_SESSION["$id"]==true)
         if(password_verify($password,$password_bdd)==false)
         //if($password_bdd!=$password) //Si l'ancien mot de passe ne correspond pas à celui de la bdd
         {
-            echo "<p>Ancien mot de passe incorrect.</p>";
+            ?><p>Ancien mot de passe incorrect.</p><?php
         }
         else if(password_verify($password_modif,$password_bdd))
         //else if($password_bdd==$password_modif) //Si le nouveau mdp est identique à l'ancien
         {
-            echo "<p>Le nouveau mot de passe est identique à l'ancien mot de passe. Veuillez en saisir un autre.</p>";
+           ?><p>Le nouveau mot de passe est identique à l'ancien mot de passe. Veuillez en saisir un autre.</p><?php
         }
         else //On modifie les informations de l'utilisateur dans la bdd
         {
@@ -183,8 +179,8 @@ if ($_SESSION["$id"]==true)
             //Récupération du résultat de la requête
             $resultat=mysqli_fetch_all($query);
             $password=$password_modif;
-            echo "<p>Votre mot de passe a bien été modifié.</p>";
             unset($_POST);
+            ?><p>Votre mot de passe a bien été modifié.</p><?php
         }
     }
     ?>
@@ -212,15 +208,18 @@ if ($_SESSION["$id"]==true)
 
     if(isset($_POST["desinscription"]))
     {
-        //On supprime les informations de l'utilisateur dans la bdd
+        //On supprime les commentaires et lesinformations de l'utilisateur dans la bdd
         //Préparation de la requête SQL pour màj les données dans la bdd
-        $desinscription="DELETE FROM utilisateurs WHERE utilisateurs.login = \"$id\" ";
+        $desinscription="DELETE commentaires,utilisateurs FROM commentaires INNER JOIN utilisateurs ON commentaires.id_utilisateur=utilisateurs.id WHERE utilisateurs.login = \"$id\"";
 
         //Execution de la requête SQL pour màj les données dans la bdd
         $query_desinsc=mysqli_query($connexion,$desinscription);
 
         //On supprime la variable de session
         unset($_SESSION["$id"]);
+
+        //Récupération du résultat de la requête
+        $resultat=mysqli_fetch_all($query);
 
         //On renvoit l'utilisateur vers la page d'accueil
         header("Location: index.php"); 

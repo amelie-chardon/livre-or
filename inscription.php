@@ -38,13 +38,13 @@ else //if(isset($_POST["id"]))
     }
     if($i!=0) //si le compteur est différent de 0 : l'identifiant est déjà pris
     {
-        echo "<p>L'identifiant choisi existe déjà. Veuillez en choisir un autre.</p>";
+        ?><p>L'identifiant choisi existe déjà. Veuillez en choisir un autre.</p><?php
     }
 
     //On vérifie si le mdp et la confirmation sont identiques
     else if($password!=$password_confirm)
     {
-        echo "<p>Les deux mots de passe sont différents.</p>";
+        ?><p>Les deux mots de passe sont différents.</p><?php
     }
     //Si les deux conditions précédents sont fausses, 
     //on peut ajouter les données du formulaire dans la bdd

@@ -41,18 +41,12 @@ else
 
         //Execution de la requête SQL pour màj les données dans la bdd
         $query_update=mysqli_query($connexion,$insert);
-
-        echo "<p>Votre message a bien été envoyé.</p>";
         header("Location: livre-or.php");
     }
     else
     {
-        echo "message vide";
-    }
-
-    
-
-    
+        ?><p>Veuillez entrer un message.</p><?php
+    }    
 }
 
 ?>

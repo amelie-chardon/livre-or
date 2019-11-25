@@ -7,7 +7,7 @@ session_start();
 $connexion=mysqli_connect("localhost","root","","livreor");
 
 //Préparation de la requête SQL
-$requete="SELECT * FROM commentaires INNER JOIN utilisateurs ON utilisateurs.id=commentaires.id_utilisateur ORDER BY commentaires.id DESC";
+$requete="SELECT * FROM commentaires INNER JOIN utilisateurs ON utilisateurs.id=commentaires.id_utilisateur ORDER BY commentaires.date DESC";
 
 //Execution de la requête SQL
 $query=mysqli_query($connexion,$requete);
@@ -42,9 +42,9 @@ $query=mysqli_query($connexion,$requete);
 
 while ($message = (mysqli_fetch_assoc($query)))
 {
-    $date = implode('/', array_reverse(explode('-', $message["date"]))); //Permet de transformer la date du format "année-mois-jour" au format "jour/mois/année"
-    echo "<p class=\"titre_commentaire\">Posté le ".$date." par ".$message["login"]."</p>";
-    echo "<p class=\"texte_commentaire\">".$message["commentaire"]."</p> ";
+    $date=date("d/m/Y"); 
+    ?><p class="titre_commentaire">Posté le <?php echo $date ?> par <?php echo $message["login"]?></p>
+    <p class="texte_commentaire"><?php echo $message["commentaire"]?></p><?php
 }
 
     ?>
@@ -53,7 +53,7 @@ while ($message = (mysqli_fetch_assoc($query)))
 <?php
 if($_SESSION==NULL)
 {
-    echo "<p>Veuillez vous <a href=\"inscription.php\">inscrire</a> ou vous <a href=\"connexion.php\">connecter</a> afin de laisser votre message.</p>";
+    ?><p>Veuillez vous <a href="inscription.php">inscrire</a> ou vous <a href="connexion.php">connecter</a> afin de laisser votre message.</p><?php
 }
 else
 {

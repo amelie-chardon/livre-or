@@ -21,15 +21,16 @@
 </header>
 <main class="accueil">
 <h1 class="titre_accueil">Bienvenue sur le livre d'or du mariage d' Alice et Antoine</h1>
-<p>Veuillez vous <a href="inscription.php">inscrire</a> ou vous <a href="connexion.php">connecter</a> afin de laisser votre message.</p>
+<p>Veuillez vous <a href="inscription.php">inscrire</a> ou vous <a href="connexion.php">connecter</a> afin de laisser votre message sur le <a href="livre-or.php">livre d'or</a>.</p>
 </main>
 </body>
 
 </html>
 
 <?php
-
+session_start();
 unset($_SESSION);
+session_destroy();
 
 ?>
 

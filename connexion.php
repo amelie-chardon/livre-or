@@ -86,8 +86,12 @@ else
         }
         else //le mdp est incorrect
         {
-            echo "<p>Le mot de passe est incorrect.</p>";
+            ?><p>Le mot de passe est incorrect.</p><?php
         }
+    }
+    else //l'identifiant n'existe pas dans la bdd
+    {
+        ?><p>Cet identifiant n'existe pas. Veuillez vous <a href="inscription.php">inscrire</a>.</p><?php
     }
 }
 
