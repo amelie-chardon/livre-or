@@ -34,7 +34,7 @@ foreach($_SESSION as $cle=>$valeur)
     $id=$cle; 
 }
 
-//Création de la connexion à a base de données
+//Création de la connexion à la base de données
 $connexion=mysqli_connect("localhost","root","","livreor");
 
 
