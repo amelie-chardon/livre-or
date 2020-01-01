@@ -42,7 +42,7 @@ $query=mysqli_query($connexion,$requete);
 
 while ($message = (mysqli_fetch_assoc($query)))
 {
-    $date=date("d/m/Y"); 
+    $date=date('d/m/Y', strtotime($message["date"]));
     ?><p class="titre_commentaire">Posté le <?php echo $date ?> par <?php echo $message["login"]?></p>
     <p class="texte_commentaire"><?php echo $message["commentaire"]?></p><?php
 }
